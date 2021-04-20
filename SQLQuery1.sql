@@ -1,0 +1,2 @@
+﻿SELECT Tbl_Customer.Cu_Id, Tbl_Customer.Cu_Firstname, Tbl_Customer.Cu_Lastname, Tbl_Customer.Cu_Email, Tbl_Price.Pr_Price
+FROM (Tbl_Customer INNER JOIN Tbl_Price ON Tbl_Customer.Cu_Id = Tbl_Price.Pr_Customer)

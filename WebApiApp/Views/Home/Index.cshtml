@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebApiApp.Models.CustomerPriceDetails>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h2>Average price is: @TempData["price"]</h2>
+
+<p>
+    <a asp-action="AveragePrice">Calculate Average Price</a>
+</p>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cu_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cu_Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cu_Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cu_Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pr_Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cu_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cu_Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cu_Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cu_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pr_Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Cu_Id}) |
+                @Html.ActionLink("Details", "Details", new { id = item.Cu_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Cu_Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
